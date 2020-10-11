@@ -32,7 +32,7 @@ const escapedFirstCar = () => {
 };
 //Second choice user faces after having escaped First Car
 const stayOrGo = () => {
-  let userInputTwo = readlineSync.question(
+  const userInputTwo = readlineSync.question(
     " PRESS 1 to disembark at Daytona Beach\n PRESS 2 to stay on the train\n"
   );
   if (userInputTwo == 1) {
@@ -51,7 +51,7 @@ const go = () => {
   console.log(
     "You and some passengers get off at the Daytona Beach station and find it to be quiet. But as you reach the front of the station, you find a hoard of silently swaying National Guard zombies!"
   );
-  let userInputThree = readlineSync.question(
+  const userInputThree = readlineSync.question(
     " PRESS 1 to run back the way you came\n PRESS 2 to run out the back of the station\n"
   );
 
@@ -65,7 +65,7 @@ const go = () => {
   }
 };
 const backDoor = () => {
-  let oddsBackDoor = Math.floor(Math.random() * 2 + 1);
+  const oddsBackDoor = Math.floor(Math.random() * 2 + 1);
   if (oddsBackDoor == 1) {
     backToTrain();
   } else {
@@ -84,7 +84,7 @@ const backToTrain = () => {
   console.log(
     "The Miami Marlins are on the train, and they've all been turned to zombies!🧟 ⚾ 🧟 ⚾ 🧟 ⚾"
   );
-  let userInputFour = readlineSync.question(
+  const userInputFour = readlineSync.question(
     " PRESS 1 to try to sneak through.\n PRESS 2 to try some clever fighting...\n"
   );
   console.log("");
@@ -103,7 +103,7 @@ const backToTrain = () => {
   }
 };
 const sneakThrough = () => {
-  let theOdds = Math.floor(Math.random() * 2 + 1);
+  const theOdds = Math.floor(Math.random() * 2 + 1);
   if (theOdds == 1) {
     console.log(
       "You climb onto the luggage racks and quietly crawl by the zombies. At the front of the car, you through a baseball to the end of the car.\n The ball distracts and you and your commrades safely climb down and run to the next car. "
@@ -131,7 +131,7 @@ const penultimateCar = () => {
   readlineSync.keyInPause(
     "The passenger who was bitten springs in front of the door to hold off the horde.  'Run!' he screams.\nYou turn around to see the rest of your passengers prying at the door of the first car up ahead. What do you do?\n"
   );
-  let userInputFive = readlineSync.question(
+  const userInputFive = readlineSync.question(
     " PRESS 1 to help your bitten commrade.\n PRESS 2 to help the passengers pry open the front door.\n"
   );
   console.log("");
@@ -150,7 +150,7 @@ const helpBitten = () => {
     "You scan the dining car for a tool to help your bitten commrade. You spy the following items: "
   );
   const tools = ["cane", "steak knife", "dining tray", "serving fork"];
-  let index = readlineSync.keyInSelect(tools, "Which tool do you pick?");
+  const index = readlineSync.keyInSelect(tools, "Which tool do you pick?");
   if (index == 0 || index == 2) {
     console.log(
       `You run forward with your ${tools[index]} and hit back the zombie reaching through.  You use your ${tools[index]} to try and secure the door.`
@@ -169,7 +169,7 @@ const helpBitten = () => {
 };
 const howToDie = () => {
   readlineSync.keyInPause("What do you do, now that you're infected?");
-  let userInputSix = readlineSync.question(
+  const userInputSix = readlineSync.question(
     "PRESS 1 to stay and help the hold back the zombies\nPRESS 2 to run to safety\n"
   );
   if (userInputSix == 1) {
@@ -177,7 +177,7 @@ const howToDie = () => {
       "You buy enough time to let the others get to the next car.\nAs the first car door shuts again, the horde breaks through and swarms you and your bitten friend.\nGAME OVER"
     );
     playAgain();
-  } else if (userInput == 2) {
+  } else if (userInputSix == 2) {
     console.log(
       "You step back in dismay as the zombies slam against the door. Your fellow bitten passenger can't hold them by himself!\nThe zombies bust through the door and swarm you and your fellow passengers.\nGAME OVER"
     );
@@ -199,13 +199,13 @@ const runForward = () => {
   readlineSync.keyInPause(
     "You weigh your options for reasoning with this first-car cluster.  You could: "
   );
-  let reasonOrFlee = [
+  const reasonOrFlee = [
     "try to prove your good health",
     "try to muscle your way through to the front",
     "appeal to this group's humanity",
     "sit down in the nearest seats and refuse to move",
   ];
-  let desparateIndex = readlineSync.keyInSelect(
+  const desparateIndex = readlineSync.keyInSelect(
     reasonOrFlee,
     "What will you do?"
   );
@@ -220,7 +220,7 @@ const runForward = () => {
   }
 };
 const forceProtest = () => {
-  let oddsForForce = Math.floor(Math.random() * 3 + 1);
+  const oddsForForce = Math.floor(Math.random() * 3 + 1);
   if (oddsForForce < 3) {
     console.log(
       "All of the passengers are now distracted by infighting and nobody watches the door.\nA horde of zombies breaks through and devours you all.\nGAME OVER "
@@ -244,7 +244,7 @@ const intoVestibule = () => {
   readlineSync.keyInPause(
     "The train has made it to Jacksonville, but there is a blockage on the tracks up ahead. With control of the train, what will you do?\n"
   );
-  let userInputSeven = readlineSync.question(
+  const userInputSeven = readlineSync.question(
     "PRESS 1 to try and crash the train.\nPRESS 2 to bring it to a stop.\nPRESS 3 to jump off the train.\n"
   );
   switch (userInputSeven) {
@@ -266,7 +266,7 @@ const crashTrain = () => {
   console.log(
     "In hopes of destroying all the zombies aboard, you decide to crash the train.\nBut you also want to jump off to safety before the train explodes.\n"
   );
-  let mph = readlineSync.question(
+  const mph = readlineSync.question(
     "How fast will you set the train before jumping off????\nENTER IN YOUR DESIRED MPH:"
   );
   if (mph > 0 && mph < 80) {
@@ -297,7 +297,7 @@ const crashTrain = () => {
   }
 };
 const stopTrain = () => {
-  let runnerSurvival = Math.floor(Math.random() * 2 + 1);
+  const runnerSurvival = Math.floor(Math.random() * 2 + 1);
   console.log(
     "You bring the train to a stop and make a run for it! You can see the station up ahead!"
   );
@@ -318,7 +318,7 @@ const stopTrain = () => {
   }
 };
 const jumpTrain = () => {
-  let jumperSurvival = Math.floor(Math.random() * 3 + 1);
+  const jumperSurvival = Math.floor(Math.random() * 3 + 1);
   if (jumperSurvival > 1) {
     console.log(
       "You and the other survivros tuck and roll as you jump the train. You watch it crumple into the blockade up ahead."
