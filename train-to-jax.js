@@ -1,37 +1,28 @@
 const readlineSync = require("readline-sync");
+console.log("");
 console.log("TRAIN TO JAX");
 console.log("");
-console.log("");
-console.log("");
+console.log(
+  "🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟"
+);
+console.log(
+  "🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟"
+);
 console.log("");
 console.log(
-  "You've boarded a train from Miami to Jacksonville to see your parents.\nShortly after you leave, you learn an viral outbreak has swept through Miami turning people into zombies!"
+  "You've boarded a train from Miami to Jacksonville to see your parents.\nShortly after you leave, you learn that a viral outbreak has swept through Miami turning people into zombies!"
 );
 
 console.log("");
 
 console.log("Good thing you're on a train speeding North.");
 readlineSync.keyInPause("But here's the bad news...");
+console.log("");
 console.log(
   "Oh no! A passenger has started writhing in your car and is turning into a zombie! 🧟"
 );
 console.log("");
-//How to start over the game//
-let playAgain = () => {
-  let playAgain = readlineSync.question("Do you want to play again? y || n \n");
-  if (playAgain === "y") {
-    console.log(
-      "You've boarded a train from Miami to Jacksonville to see your parents.\nYou learn an viral outbreak has swept through Miami turning people into zombies!\nGood thing you're on a train speeding North.\nBUT WAIT! A passenger has started writhing in your car and is turning into a zombie!🧟\n"
-    );
-    readlineSync.keyInPause("Now choose carefully this time...");
-    firstCar();
-  } else {
-    console.log("Ok. Enjoy being a zombie!");
-  }
-};
-// const userInputTwo = () => {
-//   readlineSync.question("PRESS 1 to disembark\nPRESS 2 to stay on the train");
-// };
+
 //If user picks 2 and escapes the First Car
 const escapedFirstCar = () => {
   console.log(
@@ -51,6 +42,9 @@ const stayOrGo = () => {
       "At Daytona Beach most of the other passengers have left to see the station As you watch them go, the zombie you had locked in escapes! It eats your brains!  GAME OVER."
     );
     playAgain();
+  } else {
+    console.log("You have to make a decision! Try again!");
+    stayOrGo();
   }
 };
 const go = () => {
@@ -63,8 +57,11 @@ const go = () => {
 
   if (userInputThree == 1) {
     backToTrain();
-  } else {
+  } else if (userInputThree == 2) {
     backDoor();
+  } else {
+    console.log("You have to make a decision! Try again!");
+    go();
   }
 };
 const backDoor = () => {
@@ -83,12 +80,14 @@ const backToTrain = () => {
   readlineSync.keyInPause(
     "From the breezeway of your car, you spy something horrible in the car ahead..."
   );
+  console.log("");
   console.log(
-    "The Miami Marlins are on the train, and they've all been turned to zombies!"
+    "The Miami Marlins are on the train, and they've all been turned to zombies!🧟 ⚾ 🧟 ⚾ 🧟 ⚾"
   );
   let userInputFour = readlineSync.question(
     " PRESS 1 to try to sneak through.\n PRESS 2 to try some clever fighting...\n"
   );
+  console.log("");
   if (userInputFour == 1) {
     sneakThrough();
   } else if (userInputFour == 2) {
@@ -96,7 +95,11 @@ const backToTrain = () => {
       "You realize the zombies can't see in bright sunlight.  You take the Marlins' baseball bats, smash all the tinted windows, and stun them temporarily!\nYou and your commrades smash your way through the tottering hoard of zombies, making it to an empty car ahead."
     );
     readlineSync.keyInPause("See what's ahead...");
+    console.log("");
     penultimateCar();
+  } else {
+    console.log("You have to make a decision! Try again!");
+    backToTrain();
   }
 };
 const sneakThrough = () => {
@@ -116,13 +119,14 @@ const sneakThrough = () => {
 
 const penultimateCar = () => {
   console.log(
-    "You slam the door on the rabid Marlins and breath a sigh of relief.  You've made it to the dining car-- the first car is just ahead!"
+    "You slam the door on the rabid Marlins and breathe a sigh of relief.  You've made it to the dining car-- the first car is just ahead!"
   );
   readlineSync.keyInPause(
     "But you notice one of your fellow passengers is wincing. He's been bitten!"
   );
+  console.log("");
   console.log(
-    "Just as you realize this, a zombie Marlin hand appears thrusts between the crack of the car door and its frame.\nTHE CAR AFT DOOR HAS BROKEN!"
+    "Just as you realize this, a zombie Marlin hand appears thrusts between the crack of the car door and its frame.\nTHE BACK DOOR HAS BROKEN!"
   );
   readlineSync.keyInPause(
     "The passenger who was bitten springs in front of the door to hold off the horde.  'Run!' he screams.\nYou turn around to see the rest of your passengers prying at the door of the first car up ahead. What do you do?\n"
@@ -130,10 +134,14 @@ const penultimateCar = () => {
   let userInputFive = readlineSync.question(
     " PRESS 1 to help your bitten commrade.\n PRESS 2 to help the passengers pry open the front door.\n"
   );
+  console.log("");
   if (userInputFive == 1) {
     helpBitten();
   } else if (userInputFive == 2) {
     runForward();
+  } else {
+    console.log("You have to make a decision! Try again!");
+    penultimateCar();
   }
 };
 
@@ -162,7 +170,7 @@ const helpBitten = () => {
 const howToDie = () => {
   readlineSync.keyInPause("What do you do, now that you're infected?");
   let userInputSix = readlineSync.question(
-    "PRESS 1 to stay and help the hold back the zombies\nPRESS 2 to run to safety"
+    "PRESS 1 to stay and help the hold back the zombies\nPRESS 2 to run to safety\n"
   );
   if (userInputSix == 1) {
     console.log(
@@ -174,15 +182,19 @@ const howToDie = () => {
       "You step back in dismay as the zombies slam against the door. Your fellow bitten passenger can't hold them by himself!\nThe zombies bust through the door and swarm you and your fellow passengers.\nGAME OVER"
     );
     playAgain();
+  } else {
+    console.log("You have to make a decision! Try again!");
+    howToDie();
   }
 };
 const runForward = () => {
   console.log(
-    "You rush to the door of the first car.  It's locked!\n'Let us in!' you scream.\n'No! You could be infected!' you hear a voice reply.\nIn disbelief, you and your fellow survivors pry at the door with all of your might and break through!."
+    "You rush to the door of the first car.  It's locked!\n🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒\n'Let us in!' you scream.\n'No! You could be infected!' you hear a voice reply.\nIn disbelief, you and your fellow survivors pry at the door with all of your might and break through!."
   );
   readlineSync.keyInPause("You can't believe what you see...");
+  console.log("");
   console.log(
-    "This group sequestered in the front car has been holding the door closed with a chain of neckties!\n'How do we know you're not infected?' one of them yells.\n'You have to quarantine in the vestibule up ahead,' their leader demands."
+    "This group sequestered in the front car has been holding the door closed with a chain of neckties!\n👔 👔 👔 👔 👔 👔 👔 👔 👔 👔 👔 👔 👔 👔 \n'How do we know you're not infected?' one of them yells.\n'You have to quarantine in the vestibule up ahead,' their leader demands."
   );
   readlineSync.keyInPause(
     "You weigh your options for reasoning with this first-car cluster.  You could: "
@@ -202,7 +214,7 @@ const runForward = () => {
     intoVestibule();
   } else if (desparateIndex == 1 || desparateIndex == 3) {
     console.log(
-      `You ${reasonOrFlee[desparateIndex]}. This causes skirmish in the car.`
+      `You ${reasonOrFlee[desparateIndex]}. This causes a skirmish in the car.`
     );
     forceProtest();
   }
@@ -211,7 +223,7 @@ const forceProtest = () => {
   let oddsForForce = Math.floor(Math.random() * 3 + 1);
   if (oddsForForce < 3) {
     console.log(
-      "All of the passengers are now distracted by infighting and nobody watches the door.\nA horde of zombies breaks through and devours you all\nGAME OVER "
+      "All of the passengers are now distracted by infighting and nobody watches the door.\nA horde of zombies breaks through and devours you all.\nGAME OVER "
     );
     playAgain();
   } else {
@@ -225,8 +237,9 @@ const intoVestibule = () => {
   readlineSync.keyInPause(
     "But then from outside your cell, you hear screaming..."
   );
+  console.log("");
   console.log(
-    "The group that locked you up had begun fighting amontst themselves, forgetting to watch the door!\nA HORDE OF ZOMBIES BROKE THROUGH AND IS CONSUMING THEM!\nThe guard standing by lets you out and you all sequester in the conductor's car."
+    "The group that locked you up had begun fighting amongst themselves, forgetting to watch the door!\nA HORDE OF ZOMBIES BROKE THROUGH AND IS CONSUMING THE PASSENGERS WHO LOCKED YOU UP!🧟🧟🧟🧟🧟🧟🧟🧟🧟🧟🧟🧟🧟🧟🧟\nThe guard standing by lets you out and you all sequester in the conductor's car."
   );
   readlineSync.keyInPause(
     "The train has made it to Jacksonville, but there is a blockage on the tracks up ahead. With control of the train, what will you do?\n"
@@ -237,12 +250,16 @@ const intoVestibule = () => {
   switch (userInputSeven) {
     case "1":
       crashTrain();
-
+      break;
     case "2":
       stopTrain();
-
+      break;
     case "3":
       jumpTrain();
+      break;
+    default:
+      console.log("You have to make a decision! Try again!");
+      intoVestibule();
   }
 };
 const crashTrain = () => {
@@ -262,15 +279,21 @@ const crashTrain = () => {
     );
     playAgain();
   } else if (mph >= 80 && mph <= 100) {
+    console.log("");
     console.log(
       "You jump off the train at the perfect speed!  The train explodes, incinerating the zombies and you run to the train station."
     );
     survive();
   } else if (mph > 100) {
+    console.log("");
     console.log(
-      `You set the speed to ${mph}, hoping such a high speed will kill the zombies.\nUnfortunately, the extreme kills you as you jump off the train.\nGAME OVER`
+      `You set the speed to ${mph}, hoping such a high speed will kill the zombies.\nUnfortunately, the extreme speed kills you as you jump off the train.\nGAME OVER`
     );
     playAgain();
+  } else {
+    console.log("");
+    console.log("Please enter a number!");
+    crashTrain();
   }
 };
 const stopTrain = () => {
@@ -281,6 +304,7 @@ const stopTrain = () => {
   readlineSync.keyInPause(
     "You turn around and look at the train, only to find..."
   );
+  console.log("");
   if (runnerSurvival == 1) {
     console.log(
       "The zombies have escaped and are mowing down your fellow survivors!  They are running faster than any reasonably fit human could possibly run!\nThey chase you down and devour you\nGAME OVER"
@@ -329,6 +353,9 @@ const survive = () => {
       "You and the survivors trudge through the tunnel.  A small girl amongst you begins to sing 'This Land Is Your Land' as you walk.\nThis alerts the blockade of soldiers up ahead that the footsteps approaching are of the living.\nYOU SURVIVED!!!"
     );
     playAgain();
+  } else {
+    console.log("You have to make a decision! Try again!");
+    survive();
   }
 };
 
@@ -349,6 +376,29 @@ const firstCar = () => {
     console.log("You have to make a decision! Try again!");
 
     firstCar();
+  }
+};
+
+//How to start over the game//
+let playAgain = () => {
+  let playAgain = readlineSync.question("Do you want to play again? y || n \n");
+  if (playAgain === "y") {
+    console.log("TRAIN TO JAX");
+    console.log("");
+    console.log(
+      "🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟"
+    );
+    console.log(
+      "🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟🚆 🧟"
+    );
+    console.log("");
+    console.log(
+      "You've boarded a train from Miami to Jacksonville to see your parents.\nYou learn an viral outbreak has swept through Miami turning people into zombies!\nGood thing you're on a train speeding North.\nBUT WAIT! A passenger has started writhing in your car and is turning into a zombie!🧟\n"
+    );
+    readlineSync.keyInPause("Now choose carefully this time...");
+    firstCar();
+  } else {
+    console.log("Ok. Hope you enjoyed running from zombies! 🧟");
   }
 };
 
